@@ -3,7 +3,13 @@
 
 <div class="container">
     <img src="{{ url_for('static', filename='img/uci-logo.png')}}" alt="">
+    
     <p>Hello Zot Search</p>
+    
+    <div class="search">
+        <input type="text" id="search-input">
+        <button id="search-btn">Search</button>
+    </div>
 </div>
 
 {% endblock content%}
