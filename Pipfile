@@ -9,6 +9,9 @@ verify_ssl = true
 flask = "*"
 python-dotenv = "*"
 gunicorn = "*"
+nltk = "*"
+beautifulsoup4 = "*"
+numpy = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"

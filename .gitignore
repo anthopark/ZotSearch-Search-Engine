@@ -1,5 +1,6 @@
 WEBPAGES_CLEAN/
 WEBPAGES_RAW/
+play.py
 
 venv/
 
@@ -15,3 +16,5 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+
+.vscode/
