@@ -14,11 +14,6 @@ url_bookkeeper = utils.load_json_file('./scripts/bookkeeping.json')
 def index():
     return render_template('index.html')
 
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
 @app.route('/api/search')
 def get_search_result():
 

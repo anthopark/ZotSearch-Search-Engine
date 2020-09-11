@@ -1,15 +1,44 @@
-{% extends "layout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/e9d9913a0f.js" crossorigin="anonymous"></script>
+  
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon_for_page.png')}}" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&family=Pacifico&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
 
-<div class="container">
-    <img src="{{ url_for('static', filename='img/uci-logo.png')}}" alt="">
-    
-    <p>Hello Zot Search</p>
-    
-    <div class="search">
-        <input type="text" id="search-input">
-        <button id="search-btn">Search</button>
+  <title>Zot Search</title>
+</head>
+<body>
+  <header>
+    <div class="top-background">
+      <ul class="zot-search-menu">
+        <a class="zot-logo" href="index.html"><img src="{{ url_for('static', filename='img/logo.png') }}" width="60" height="60" alt="logo"></a>
+        <li class="about">About</li>
+      </ul>
     </div>
-</div>
 
-{% endblock content%}
+  </header>
+
+  <div class="logo-container">
+    <h1 class="logo-heading">
+      <span id="main-logo-zot">ZOT</span> 
+      <span id="main-logo-search">Search</span>
+    </h1>
+  </div>
+
+  </div>
+
+  <div class="search-container">
+    <div class="searchbar-button">
+      <input type="text" id="search-bar" placeholder="Enter any keywords">
+      <button class="button" type="submit"><i class="fas fa-search fa-2x"></i></button>
+    </div>
+  </div>
+  
+  
+</body>
+</html>
