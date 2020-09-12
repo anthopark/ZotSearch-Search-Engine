@@ -136,6 +136,7 @@ button i {
 }
 
 #word-bank-box {
+  display: none;
   position: absolute;
   width: 100%;
   margin-top: 50px;
@@ -164,3 +165,18 @@ input.disabled {
   background-color: rgb(231, 231, 231);
 }
 
+#result-box {
+  display: none;
+  position: absolute;
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+
+td.rank {
+  text-align: center;
+}
+
+td.url {
+  word-break: break-all;
+}

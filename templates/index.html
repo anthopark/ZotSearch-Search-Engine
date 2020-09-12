@@ -77,6 +77,20 @@
         <h3 class="word-bank-title">WORD BANK</h3>
         <div class="word-btns"></div>
       </div>
+
+      <div class="ui text containter" id="result-box">
+        <button class="ui button"id="back-to-word-bank-btn"><< Word Bank</button>
+        <table class="ui celled striped table">
+          <thead>
+            <tr>
+              <th>Ranking</th>
+              <th class="center aligned">URL</th>
+            </tr>
+          </thead>
+          <tbody id="search-result">
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/app.js')}}"></script>

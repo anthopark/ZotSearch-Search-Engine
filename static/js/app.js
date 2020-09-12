@@ -13,6 +13,8 @@ const available_queries = [
 ]
 
 const wordButtonsEl = document.querySelector('.word-btns');
+const wordBankBoxEl = document.querySelector('#word-bank-box');
+const resultBox = document.querySelector('#result-box');
 
 available_queries.forEach((word) => {
     const wordBtnEl = document.createElement('button');
@@ -31,9 +33,9 @@ wordButtonsEl.addEventListener('click', (e) => {
     }
 })
 
-document.querySelector('#search-form').addEventListener('submit', (e) =>{
+document.querySelector('#search-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    const wordBankBoxEl = document.querySelector('#word-bank-box');
+    resultBox.style.display = 'none';
     wordBankBoxEl.style.display = 'none';
     const searchLoadingEl = document.querySelector('#search-loading');
     searchLoadingEl.style.display = 'block';
@@ -46,9 +48,38 @@ document.querySelector('#search-form').addEventListener('submit', (e) =>{
     setTimeout(async () => {
         const response = await fetch(`/api/search?query=${encodeURIComponent(searchBarEl.value)}`)
         if (response.status === 200) {
+            const resultTBodyEl = document.querySelector('#search-result');
             const data = await response.json();
             console.log(data);
+            
+            if (data.length === 0){
+                return;
+            }
+            
+            data.forEach((result) => {
+                const rowEl = document.createElement('tr');
+                rowEl.innerHTML = `
+                    <td class="center aligned collapsing rank">${result[0]}</td>
+                    <td class="url">
+                        <a class="item" target="_blank" href="${result[1].startsWith('http') ? result[1] : 'http://' + result[1]}">${result[1]}</a>
+                    </td>
+                `;
+                resultTBodyEl.appendChild(rowEl)
+                
+            })
         }
         searchLoadingEl.style.display = 'none';
-    }, 700)
+        resultBox.style.display = 'block';
+    }, 500)
+})
+
+
+document.querySelector('#search-bar').addEventListener('click', () => {
+    wordBankBoxEl.style.display = 'block';
+    resultBox.style.display = 'none';
+})
+
+document.querySelector('#back-to-word-bank-btn').addEventListener('click', () => {
+    wordBankBoxEl.style.display = 'block';
+    resultBox.style.display = 'none';
 })
