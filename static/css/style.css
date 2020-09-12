@@ -76,7 +76,7 @@
 
 .logo-container {
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -117,9 +117,50 @@ button i {
 }
 
 .search-container {
-  width: 40%;
+  width: 60%;
+  max-width: 700px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+#search-loading {
+  display: none;
+  position: absolute;
+  width: 100%;
+  margin-top: 50px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: none;
+}
+
+#word-bank-box {
+  position: absolute;
+  width: 100%;
+  margin-top: 50px;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: rgb(211, 211, 211);
+}
+
+h3.word-bank-title {
+  font-size: 23px;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+button.ui.word-btn {
+  margin: 2px;
+  background-color: #C3BDEA;
+  color: #fff;
+  padding: 11px;
+  font-size: 17px;
+  border: 1px solid #978be9
+}
+
+input.disabled {
+  background-color: rgb(231, 231, 231);
+}
+

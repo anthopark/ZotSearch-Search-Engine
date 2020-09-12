@@ -1,44 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/e9d9913a0f.js" crossorigin="anonymous"></script>
-  
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon_for_page.png')}}" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&family=Pacifico&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/e9d9913a0f.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <title>Zot Search</title>
-</head>
-<body>
-  <header>
-    <div class="top-background">
-      <ul class="zot-search-menu">
-        <a class="zot-logo" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" width="60" height="60" alt="logo"></a>
-        <li class="about">About</li>
-      </ul>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='img/icon_for_page.png')}}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&family=Pacifico&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css')}}"
+    />
+
+    <title>Zot Search</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="top-background">
+        <ul class="zot-search-menu">
+          <a class="zot-logo" href="{{ url_for('index') }}"
+            ><img
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              width="60"
+              height="60"
+              alt="logo"
+          /></a>
+          <li class="about">About</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="logo-container">
+      <h1 class="logo-heading">
+        <span id="main-logo-zot">ZOT</span>
+        <span id="main-logo-search">Search</span>
+      </h1>
     </div>
 
-  </header>
+    <div class="search-container">
+      <form id="search-form">
+        <div class="searchbar-button">
+          <input type="text" id="search-bar" placeholder="Enter any keywords" />
+          <button class="button" type="submit">
+            <i class="fas fa-search fa-2x"></i>
+          </button>
+        </div>
+      </form>
 
-  <div class="logo-container">
-    <h1 class="logo-heading">
-      <span id="main-logo-zot">ZOT</span> 
-      <span id="main-logo-search">Search</span>
-    </h1>
-  </div>
+      <div class="ui segment" id="search-loading">
+        <div class="ui active loader"></div>
+        <p></p>
+      </div>
 
-  </div>
-
-  <div class="search-container">
-    <div class="searchbar-button">
-      <input type="text" id="search-bar" placeholder="Enter any keywords">
-      <button class="button" type="submit"><i class="fas fa-search fa-2x"></i></button>
+      <div class="ui text container" id="word-bank-box">
+        <h3 class="word-bank-title">WORD BANK</h3>
+        <div class="word-btns"></div>
+      </div>
     </div>
-  </div>
-  
-  
-</body>
+
+    <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+  </body>
 </html>
