@@ -15,6 +15,7 @@ const available_queries = [
 const wordButtonsEl = document.querySelector('.word-btns');
 const wordBankBoxEl = document.querySelector('#word-bank-box');
 const resultBox = document.querySelector('#result-box');
+const resultTBodyEl = document.querySelector('#search-result');
 
 available_queries.forEach((word) => {
     const wordBtnEl = document.createElement('button');
@@ -36,6 +37,7 @@ wordButtonsEl.addEventListener('click', (e) => {
 document.querySelector('#search-form').addEventListener('submit', (e) => {
     e.preventDefault();
     resultBox.style.display = 'none';
+    resultTBodyEl.innerHTML = '';
     wordBankBoxEl.style.display = 'none';
     const searchLoadingEl = document.querySelector('#search-loading');
     searchLoadingEl.style.display = 'block';
@@ -48,14 +50,13 @@ document.querySelector('#search-form').addEventListener('submit', (e) => {
     setTimeout(async () => {
         const response = await fetch(`/api/search?query=${encodeURIComponent(searchBarEl.value)}`)
         if (response.status === 200) {
-            const resultTBodyEl = document.querySelector('#search-result');
             const data = await response.json();
             console.log(data);
-            
-            if (data.length === 0){
+
+            if (data.length === 0) {
                 return;
             }
-            
+
             data.forEach((result) => {
                 const rowEl = document.createElement('tr');
                 rowEl.innerHTML = `
@@ -65,7 +66,7 @@ document.querySelector('#search-form').addEventListener('submit', (e) => {
                     </td>
                 `;
                 resultTBodyEl.appendChild(rowEl)
-                
+
             })
         }
         searchLoadingEl.style.display = 'none';
@@ -82,4 +83,11 @@ document.querySelector('#search-bar').addEventListener('click', () => {
 document.querySelector('#back-to-word-bank-btn').addEventListener('click', () => {
     wordBankBoxEl.style.display = 'block';
     resultBox.style.display = 'none';
+})
+
+document.querySelector('#about-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    $('.ui.basic.modal')
+        .modal('show')
+    ;
 })

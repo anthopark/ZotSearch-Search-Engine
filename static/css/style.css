@@ -180,3 +180,12 @@ td.rank {
 td.url {
   word-break: break-all;
 }
+
+ul.ui.list {
+  list-style: none;
+}
+
+ul.ui.list li::before {
+  content: "• ";
+  color: white;
+}
